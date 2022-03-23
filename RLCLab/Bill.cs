@@ -24,9 +24,9 @@ namespace RLCLab
             List<Item>.Enumerator items = _items.GetEnumerator();
             String result = "Счет для " + _customer.getName() + "\n";
             
-            result += "\t" + "Название" + "\t" + "Цена" +
-            "\t" + "Кол-во" + "Стоимость" + "\t" + "Скидка" +
-            "\t" + "Сумма" + "\t" + "Бонус" + "\n";
+        result += "\t" + "Название" + "\t" + "Цена" +
+        "\t" + "Кол-во" + "Стоимость" + "\t" + "Скидка" +
+        "\t" + "Сумма" + "\t" + "Бонус" + "\n";
             while (items.MoveNext())
             {
                 double thisAmount = 0;
@@ -73,10 +73,10 @@ namespace RLCLab
                 //показать результаты
                 result += "\t" + each.getGoods().getTitle() + "\t" +
                 
-                "\t" + each.getPrice() + "\t" + each.getQuantity() +
-                "\t" + (each.getQuantity() * each.getPrice()).ToString() +
-                "\t" + discount.ToString() + "\t" + thisAmount.ToString() +
-                "\t" + bonus.ToString() + "\n";
+            "\t" + each.getPrice() + "\t" + each.getQuantity() +
+            "\t" + (each.getQuantity() * each.getPrice()).ToString() +
+            "\t" + discount.ToString() + "\t" + thisAmount.ToString() +
+            "\t" + bonus.ToString() + "\n";
                 totalAmount += thisAmount;
                 totalBonus += bonus;
             }
