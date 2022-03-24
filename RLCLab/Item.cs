@@ -28,5 +28,11 @@ namespace RLCLab
         {
             return _Goods;
         }
+        public string getItemString() 
+        {
+            return "\t" + this.getGoods().getTitle() + "\t" +
+                "\t" + this.getPrice() + "\t" + this.getQuantity() +
+                "\t" + (this.getQuantity() * this.getPrice()).ToString();
+        }
     }
 }
