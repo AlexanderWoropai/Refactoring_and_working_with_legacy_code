@@ -17,6 +17,8 @@ namespace RLCLab
         {
             _items.Add(arg);
         }
+
+
         public String statement()
         {
             double totalAmount = 0;
@@ -38,12 +40,6 @@ namespace RLCLab
                 // сумма
                 thisAmount = each.getQuantity() * each.getPrice();
 
-                // используем бонусы
-                if ((each.getGoods().getPriceCode() == Goods.REGULAR) && each.getQuantity() > 5)
-                    discount += _customer.useBonus((int)(each.getQuantity() * each.getPrice()));
-                if ((each.getGoods().getPriceCode() == Goods.SPECIAL_OFFER) && each.getQuantity() > 1)
-                    discount = _customer.useBonus((int)(each.getQuantity() * each.getPrice()));
-
                 // учитываем скидку
                 thisAmount = each.getQuantity() * each.getPrice() - discount;
 
@@ -62,6 +58,8 @@ namespace RLCLab
             _customer.receiveBonus(totalBonus);
             return result;
         }
+
+
         private int GetBonus(Item item) 
         {
             switch (item.getGoods().getPriceCode()) 
@@ -73,19 +71,26 @@ namespace RLCLab
         }
         private double GetDiscount(Item item) 
         {
+            double discount = 0;
             switch (item.getGoods().getPriceCode())
             {
                 case Goods.REGULAR:
-                    if (item.getQuantity() > 2) return (item.getQuantity() * item.getPrice()) * 0.03; // 3%
+                    if (item.getQuantity() > 2) discount = (item.getQuantity() * item.getPrice()) * 0.03; // 3%
                     break;
                 case Goods.SPECIAL_OFFER:
-                    if (item.getQuantity() > 10) return (item.getQuantity() * item.getPrice()) * 0.005; // 0.5%
+                    if (item.getQuantity() > 10) discount = (item.getQuantity() * item.getPrice()) * 0.005; // 0.5%
                     break;
                 case Goods.SALE:
-                    if (item.getQuantity() > 3) return (item.getQuantity() * item.getPrice()) * 0.01; // 0.1%
+                    if (item.getQuantity() > 3) discount = (item.getQuantity() * item.getPrice()) * 0.01; // 0.1%
                     break;
             }
-            return 0;
+
+            // используем бонусы
+            if ((item.getGoods().getPriceCode() == Goods.REGULAR) && item.getQuantity() > 5)
+                discount += _customer.useBonus((int)(item.getQuantity() * item.getPrice()));
+            if ((item.getGoods().getPriceCode() == Goods.SPECIAL_OFFER) && item.getQuantity() > 1)
+                discount = _customer.useBonus((int)(item.getQuantity() * item.getPrice()));
+            return discount;
         }
         private string GetHeader() 
         { 
