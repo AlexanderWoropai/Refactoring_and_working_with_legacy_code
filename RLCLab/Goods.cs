@@ -38,5 +38,22 @@ namespace RLCLab
             }
             return 0;
         }
+        public double GetDiscount(Item item)
+        {
+            double discount = 0;
+            switch (item.getGoods().getPriceCode())
+            {
+                case Goods.REGULAR:
+                    if (item.getQuantity() > 2) discount = (item.getQuantity() * item.getPrice()) * 0.03; // 3%
+                    break;
+                case Goods.SPECIAL_OFFER:
+                    if (item.getQuantity() > 10) discount = (item.getQuantity() * item.getPrice()) * 0.005; // 0.5%
+                    break;
+                case Goods.SALE:
+                    if (item.getQuantity() > 3) discount = (item.getQuantity() * item.getPrice()) * 0.01; // 0.1%
+                    break;
+            }
+            return discount;
+        }
     }
 }

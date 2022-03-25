@@ -24,6 +24,15 @@ namespace RLCLab
         {
             return _Goods.GetBonus(this);
         }
+        public double GetDiscount(Item each)
+        {
+            return each.getGoods().GetDiscount(each);
+        }
+        public double GetDiscount()
+        {
+            return _Goods.GetDiscount(this);
+        }
+
         public int getQuantity()
         {
             return _quantity;
