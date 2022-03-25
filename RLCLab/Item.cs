@@ -16,6 +16,14 @@ namespace RLCLab
             _quantity = quantity;
             _price = price;
         }
+        public int GetBonus(Item each) 
+        {
+            return each.getGoods().GetBonus(each);
+        }
+        public int GetBonus() 
+        {
+            return _Goods.GetBonus(this);
+        }
         public int getQuantity()
         {
             return _quantity;

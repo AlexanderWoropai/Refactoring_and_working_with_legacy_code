@@ -33,7 +33,7 @@ namespace RLCLab
                 Item each = (Item)items.Current;
 
                 //определить сумму для каждой строки
-                bonus = GetBonus(each);
+                bonus = each.GetBonus(each);
                 discount = GetDiscount(each);
                 usedBonus = GetUsedBonus(each, discount);
 
@@ -55,19 +55,9 @@ namespace RLCLab
             _customer.receiveBonus(totalBonus);
             return result;
         }
-
         private double GetSum(Item item) 
         {
             return item.getQuantity() * item.getPrice();
-        }
-        private int GetBonus(Item item) 
-        {
-            switch (item.getGoods().getPriceCode()) 
-            {
-                case Goods.REGULAR: return (int)(GetSum(item) * 0.05);
-                case Goods.SALE: return (int)(GetSum(item) * 0.01);
-            }
-            return 0;
         }
         private double GetDiscount(Item item) 
         {
