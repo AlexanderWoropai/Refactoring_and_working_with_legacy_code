@@ -8,8 +8,8 @@ namespace RLCLab
     {
         static void Example(string[] args)
         {
-            Goods cola = new Goods("Cola", Goods.REGULAR);
-            Goods pepsi = new Goods("Pepsi", Goods.SALE);
+            Goods cola = new REG("Cola");
+            Goods pepsi = new SAL("Pepsi"); 
             Item i1 = new Item(cola, 6, 65);
             Item i2 = new Item(pepsi, 3, 50);
             Customer x = new Customer("test", 10);

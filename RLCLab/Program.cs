@@ -39,21 +39,19 @@ namespace RLCLab
                 result = line.Split(':');
                 result = result[1].Trim().Split();
                 string type = result[1].Trim();
-                int t = 0;
                 
                 switch (type)
                 {
                     case "REG":
-                        t = Goods.REGULAR;
+                        g[i] = new REG(result[0]);
                         break;
                     case "SAL":
-                        t = Goods.SALE;
+                        g[i] = new SAL(result[0]);
                         break;
                     case "SPO":
-                        t = Goods.SPECIAL_OFFER;
+                        g[i] = new SPO(result[0]);
                         break;
                 }
-                g[i] = new Goods(result[0], t);
             }
             // read items count
             // Пропустить комментарии
