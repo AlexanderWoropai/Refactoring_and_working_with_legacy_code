@@ -35,10 +35,10 @@ namespace RLCLab
                 //определить сумму для каждой строки
                 bonus = each.GetBonus();
                 discount = each.GetDiscount();
-                usedBonus = GetUsedBonus(each, discount);
+                usedBonus = each.GetUsedBonus(_customer);
 
                 // учитываем скидку
-                thisAmount = GetSum(each) - discount - usedBonus;
+                thisAmount = each.GetSum() - discount - usedBonus;
 
                 //показать результаты
                 result += each.getItemString() +
@@ -54,20 +54,6 @@ namespace RLCLab
             //Запомнить бонус клиента
             _customer.receiveBonus(totalBonus);
             return result;
-        }
-        private double GetSum(Item item) 
-        {
-            return item.getQuantity() * item.getPrice();
-        }
-        private double GetUsedBonus(Item item, double discount) 
-        {
-            double usedBonus = 0;
-            // используем бонусы
-            if ((item.getGoods().GetType() == typeof(REG)) && item.getQuantity() > 5)
-                usedBonus = _customer.useBonus((int)(GetSum(item)-discount));
-            if ((item.getGoods().GetType() == typeof(SPO)) && item.getQuantity() > 1)
-                usedBonus = _customer.useBonus((int)(GetSum(item)-discount));
-            return usedBonus;
         }
         private string GetHeader() 
         { 

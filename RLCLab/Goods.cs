@@ -16,11 +16,11 @@ namespace RLCLab
         {
             return _title;
         }
-        public virtual int GetBonus(Item item)
+        public virtual double GetBonus()
         {
             return 0;
         }
-        public virtual double GetDiscount(Item item)
+        public virtual double GetDiscount(int qty)
         {
             return 0;
         }

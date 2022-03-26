@@ -20,16 +20,24 @@ namespace RLCLab
         {
             return (int)(getQuantity() * getPrice() * getGoods().GetBonus());
         }
-        
-        public double GetDiscount(Item each)
-        {
-            return each.getGoods().GetDiscount(each);
-        }
         public double GetDiscount()
         {
-            return _Goods.GetDiscount(this);
+            return getQuantity() * getPrice() * getGoods().GetDiscount(_quantity);
         }
-
+        public double GetUsedBonus(Customer _customer)
+        {
+            double usedBonus = 0;
+            // используем бонусы
+            if ((getGoods().GetType() == typeof(REG)) && getQuantity() > 5)
+                usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));
+            if ((getGoods().GetType() == typeof(SPO)) && getQuantity() > 1)
+                usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));
+            return usedBonus;
+        }
+        public double GetSum()
+        {
+            return getQuantity() * getPrice();
+        }
         public int getQuantity()
         {
             return _quantity;
@@ -44,9 +52,9 @@ namespace RLCLab
         }
         public string getItemString() 
         {
-            return "\t" + this.getGoods().getTitle() + "\t" +
-                "\t" + this.getPrice() + "\t" + this.getQuantity() +
-                "\t" + (this.getQuantity() * this.getPrice()).ToString();
+            return "\t" + getGoods().getTitle() + "\t" +
+                "\t" + getPrice() + "\t" + getQuantity() +
+                "\t" + (getQuantity() * getPrice()).ToString();
         }
     }
 }

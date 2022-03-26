@@ -12,15 +12,14 @@ namespace RLCLab
         {
             _title = title;
         }
-        public override int GetBonus(Item item)
+        public override double GetBonus()
         {
             return 0;
         }
-        public override double GetDiscount(Item item)
+        public override double GetDiscount(int qty)
         {
-            double discount = 0;
-            if (item.getQuantity() > 10) return (item.getQuantity() * item.getPrice()) * 0.005; // 0.5%
-            return discount;
+            if (qty > 10) return  0.005; // 0.5%
+            return 0;
         }
     }
 }
