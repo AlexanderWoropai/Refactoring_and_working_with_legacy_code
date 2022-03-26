@@ -29,12 +29,12 @@ namespace RLCLab
         {
             return _title;
         }
-        public int GetBonus(Item item)
+        public double GetBonus()
         {
-            switch (item.getGoods().getPriceCode())
+            switch (getPriceCode())
             {
-                case Goods.REGULAR: return (int)(item.getQuantity() * item.getPrice() * 0.05);
-                case Goods.SALE: return (int)(item.getQuantity() * item.getPrice() * 0.01);
+                case Goods.REGULAR: return 0.05;
+                case Goods.SALE: return  0.01;
             }
             return 0;
         }
