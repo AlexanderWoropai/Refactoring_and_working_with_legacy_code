@@ -8,10 +8,12 @@ namespace RLCLab
     {
         private List<Item> _items;
         private Customer _customer;
-        public Bill(Customer customer)
+        private IView _View;
+        public Bill(Customer customer, IView View)
         {
             this._customer = customer;
             this._items = new List<Item>();
+            this._View = View;
         }
         public void addGoods(Item arg)
         {
@@ -24,7 +26,7 @@ namespace RLCLab
             double totalAmount = 0;
             int totalBonus = 0;
             List<Item>.Enumerator items = _items.GetEnumerator();
-            String result = GetHeader();
+            String result = _View.GetHeader(_customer);
 
             while (items.MoveNext())
             {
@@ -41,15 +43,13 @@ namespace RLCLab
                 thisAmount = each.GetSum() - discount - usedBonus;
 
                 //показать результаты
-                result += each.getItemString() +
-                "\t" + discount.ToString() + "\t" + thisAmount.ToString() +
-                "\t" + bonus.ToString() + "\n";
+                result += _View.GetItemString(each, usedBonus); 
 
                 totalAmount += thisAmount;
                 totalBonus += bonus;
             }
             //добавить нижний колонтитул
-            result += GetFooter(totalAmount, totalBonus);
+            result += _View.GetFooter(totalAmount, totalBonus);
 
             //Запомнить бонус клиента
             _customer.receiveBonus(totalBonus);
@@ -66,6 +66,10 @@ namespace RLCLab
         {
             return "Сумма счета составляет " + totalAmount.ToString() + "\n" +
             "Вы заработали " + totalBonus.ToString() + " бонусных балов";
+        }
+        public void setView(IView View) 
+        {
+            _View = View;
         }
     }
 }

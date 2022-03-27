@@ -50,11 +50,14 @@ namespace RLCLab
         {
             return _Goods;
         }
-        public string getItemString() 
+        public string getItemString(double usedBonus) 
         {
             return "\t" + getGoods().getTitle() + "\t" +
                 "\t" + getPrice() + "\t" + getQuantity() +
-                "\t" + (getQuantity() * getPrice()).ToString();
+                "\t" + (getQuantity() * getPrice()).ToString() +
+                "\t" + GetDiscount().ToString() + 
+                "\t" + (GetSum() - GetDiscount() - usedBonus).ToString() +
+                "\t" + GetBonus().ToString() + "\n"; ;
         }
     }
 }
