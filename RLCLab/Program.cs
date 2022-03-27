@@ -76,7 +76,7 @@ namespace RLCLab
                 int qty = Convert.ToInt32(result[2].Trim());
                 b.addGoods(new Item(g[gid - 1], qty, price));
             }
-            string bill = b.statement();
+            string bill = b.GetBill();
             Console.WriteLine(bill);
         }
     }

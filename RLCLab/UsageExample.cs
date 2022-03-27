@@ -17,7 +17,7 @@ namespace RLCLab
             Bill b1 = new Bill(x, view);
             b1.addGoods(i1);
             b1.addGoods(i2);
-            string bill = b1.statement();
+            string bill = b1.GetBill();
             Console.WriteLine(bill);
         }
     }

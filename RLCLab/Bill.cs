@@ -21,7 +21,7 @@ namespace RLCLab
         }
 
 
-        public String statement()
+        public String GetBill()
         {
             double totalAmount = 0;
             int totalBonus = 0;
@@ -54,18 +54,6 @@ namespace RLCLab
             //Запомнить бонус клиента
             _customer.receiveBonus(totalBonus);
             return result;
-        }
-        private string GetHeader() 
-        { 
-            return "Счет для " + _customer.getName() + "\n"+
-            "\t" + "Название" + "\t" + "Цена" +
-            "\t" + "Кол-во" + "Стоимость" + "\t" + "Скидка" +
-            "\t" + "Сумма" + "\t" + "Бонус" + "\n";
-        }
-        private string GetFooter(double totalAmount, int totalBonus) 
-        {
-            return "Сумма счета составляет " + totalAmount.ToString() + "\n" +
-            "Вы заработали " + totalBonus.ToString() + " бонусных балов";
         }
         public void setView(IView View) 
         {

@@ -29,7 +29,7 @@ namespace RLCLab
                 "\t" + (item.GetSum()).ToString() +
                 "\t" + item.GetDiscount().ToString() + 
                 "\t" + (item.GetSum() - item.GetDiscount() - usedBonus).ToString() +
-                "\t" + item.GetBonus().ToString() + "\n"; ;
+                "\t" + item.GetBonus().ToString() + "\n";
         }
     }
 }
