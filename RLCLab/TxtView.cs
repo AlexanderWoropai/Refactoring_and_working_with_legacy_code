@@ -14,22 +14,23 @@ namespace RLCLab
             "Вы заработали " + totalBonus.ToString() + " бонусных балов";
         }
 
-        public string GetHeader(Customer _customer) 
+        public string GetHeader(string _customerName) 
         {
-            return "Счет для " + _customer.getName() + "\n" +
+            return "Счет для " + _customerName + "\n" +
             "\t" + "Название" + "\t" + "Цена" +
             "\t" + "Кол-во" + "Стоимость" + "\t" + "Скидка" +
             "\t" + "Сумма" + "\t" + "Бонус" + "\n";
         }
 
-        public string GetItemString(Item item, double usedBonus)
+        public string GetItemString(ItemSummary item)
         {
-            return "\t" + item.getGoods().getTitle() + "\t" +
-                "\t" + item.getPrice() + "\t" + item.getQuantity() +
-                "\t" + (item.GetSum()).ToString() +
-                "\t" + item.GetDiscount().ToString() + 
-                "\t" + (item.GetSum() - item.GetDiscount() - usedBonus).ToString() +
-                "\t" + item.GetBonus().ToString() + "\n";
+            return "\t" + item.GetName() + "\t" +
+                "\t" + item.GetPrice() + 
+                "\t" + item.GetQuantity() +
+                "\t" + item.GetSum() +
+                "\t" + item.GetDiscount() + 
+                "\t" + item.GetTotalPrice() +
+                "\t" + item.GetBonus() + "\n";
         }
     }
 }

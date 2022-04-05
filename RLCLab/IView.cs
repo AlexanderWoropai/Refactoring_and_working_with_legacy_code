@@ -8,8 +8,8 @@ namespace RLCLab
 {
     public interface IView
     {
-        string GetHeader(Customer _customer);
+        string GetHeader(string _customer);
         string GetFooter(double totalAmount, int totalBonus);
-        string GetItemString(Item item, double usedBonus);
+        string GetItemString(ItemSummary _itemSummary);
     }
 }

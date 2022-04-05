@@ -16,7 +16,7 @@ namespace RLCLab
             return result;
         }
 
-        public string GetHeader(Customer _customer)
+        public string GetHeader(string _customerName)
         {
             string result = "<style>.field{width: 100px; float: left;}</style>";
             result += String.Format("<p>Счет для {0}</p>" +
@@ -26,11 +26,11 @@ namespace RLCLab
                 "<div class='field'>Стоимость</div>" +
                 "<div class='field'>Скидка</div>" +
                 "<div class='field'>Сумма</div>" +
-                "<div class='field'>Бонус</div><br>", _customer.getName());
+                "<div class='field'>Бонус</div><br>", _customerName);
             return result;
         }
 
-        public string GetItemString(Item item, double usedBonus)
+        public string GetItemString(ItemSummary item)
         {
             string result = "<style>.field{width: 100px; float: left;}</style>";
             result += String.Format("<div class='field'>{0}</div>" +
@@ -39,14 +39,14 @@ namespace RLCLab
                 "<div class='field'>{3}</div>" +
                 "<div class='field'>{4}</div>" +
                 "<div class='field'>{5}</div>" +
-                "<div class='field'>{6}</div><br>", 
-                item.getGoods().getTitle(),
-                item.getPrice(),
-                item.getQuantity(),
-                (item.GetSum()).ToString(),
-                item.GetDiscount().ToString(),
-                (item.GetSum() - item.GetDiscount() - usedBonus).ToString(),
-                item.GetBonus().ToString());
+                "<div class='field'>{6}</div><br>",
+                item.GetName(),
+                item.GetPrice(),
+                item.GetQuantity(),
+                item.GetSum(),
+                item.GetDiscount(),
+                item.GetTotalPrice(),
+                item.GetBonus());
             return result;
         }
     }

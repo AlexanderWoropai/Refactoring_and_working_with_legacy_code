@@ -8,56 +8,47 @@ namespace RLCLab
     {
         private List<Item> _items;
         private Customer _customer;
-        private IView _View;
-        public Bill(Customer customer, IView View)
+        public Bill(Customer customer)
         {
             this._customer = customer;
             this._items = new List<Item>();
-            this._View = View;
         }
         public void addGoods(Item arg)
         {
             _items.Add(arg);
         }
-
-
-        public String GetBill()
+        public BillSummary Process()
         {
             double totalAmount = 0;
             int totalBonus = 0;
+            var thisbill = new BillSummary();
+            thisbill.SetCustomerName(_customer.getName());
             List<Item>.Enumerator items = _items.GetEnumerator();
-            String result = _View.GetHeader(_customer);
 
             while (items.MoveNext())
             {
-                double thisAmount, discount, usedBonus;
-                int bonus;
+                var thisitem = new ItemSummary();
                 Item each = (Item)items.Current;
 
-                //определить сумму для каждой строки
-                bonus = each.GetBonus();
-                discount = each.GetDiscount();
-                usedBonus = each.GetUsedBonus(_customer);
+                thisitem.SetName(each.getGoods().getTitle());
+                thisitem.SetPrice(each.getPrice());
+                thisitem.SetQuantity(each.getQuantity());
+                thisitem.SetSum(each.GetSum());
+                thisitem.SetDiscount(each.GetDiscount());
+                thisitem.SetTotalPrice(each.GetSum() - each.GetDiscount() - each.GetUsedBonus(_customer));
+                thisitem.SetBonus(each.GetBonus());
 
-                // учитываем скидку
-                thisAmount = each.GetSum() - discount - usedBonus;
-
-                //показать результаты
-                result += _View.GetItemString(each, usedBonus); 
-
-                totalAmount += thisAmount;
-                totalBonus += bonus;
+                totalAmount += thisitem.GetTotalPrice();
+                totalBonus += thisitem.GetBonus();
+                thisbill.AddItems(thisitem);
             }
-            //добавить нижний колонтитул
-            result += _View.GetFooter(totalAmount, totalBonus);
 
             //Запомнить бонус клиента
             _customer.receiveBonus(totalBonus);
-            return result;
-        }
-        public void setView(IView View) 
-        {
-            _View = View;
+            thisbill.SetTotalAmount(totalAmount);
+            thisbill.SetTotalBonus(totalBonus);
+
+            return thisbill;
         }
     }
 }
