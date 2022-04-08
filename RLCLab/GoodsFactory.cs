@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class GoodsFactory
+    public class GoodsFactory
     {
         public Goods Create(string type,string title) 
         {

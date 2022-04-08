@@ -7,7 +7,7 @@ using System.IO;
 
 namespace RLCLab
 {
-    interface IComponent
+    public interface IFileSource
     {
         Customer GetCustomer(TextReader reader);
         int GetGoodsCount(TextReader reader);

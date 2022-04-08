@@ -9,23 +9,27 @@ namespace RLCLab
 {
     public class BillFactory
     {
+        IFileSource _filesource;
+        public BillFactory(IFileSource _filesource) 
+        {
+            this._filesource = _filesource;
+        }
         public Bill CreateBill(TextReader reader)
         {
-            var Content = new ContentFile();
             // read customer
-            Customer customer = Content.GetCustomer(reader);
+            Customer customer = _filesource.GetCustomer(reader);
             Bill b = new Bill(customer);
             // read goods count
-            int goodsQty = Content.GetGoodsCount(reader);
+            int goodsQty = _filesource.GetGoodsCount(reader);
             Goods[] g = new Goods[goodsQty];
             for (int i = 0; i < g.Length; i++)
             {
-                g[i] = Content.GetNextGood(reader);
+                g[i] = _filesource.GetNextGood(reader);
             }
-            int itemsQty = Content.GetItemsCount(reader);
+            int itemsQty = _filesource.GetItemsCount(reader);
             for (int i = 0; i < itemsQty; i++)
             {
-                b.addGoods(Content.GetNextItem(g, reader));
+                b.addGoods(_filesource.GetNextItem(g, reader));
             }
             return b;
         }

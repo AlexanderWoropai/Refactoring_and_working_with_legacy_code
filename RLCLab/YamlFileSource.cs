@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class ContentFile : IComponent
+    public class YamlFileSource : IFileSource
     {
         public Customer GetCustomer(TextReader reader)
         {
