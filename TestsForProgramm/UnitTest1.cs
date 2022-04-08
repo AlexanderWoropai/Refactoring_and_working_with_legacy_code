@@ -1,5 +1,8 @@
 using NUnit.Framework;
 using RLCLab;
+using static RLCLab.Program;
+using System;
+using System.IO;
 
 namespace TestsForProgramm
 {
@@ -27,7 +30,7 @@ namespace TestsForProgramm
             Assert.AreEqual(expected, actual);
         }
         [Test]
-        public void TXT_UsualStatementTestWithBonuses()
+        public void TXT_UsualBillStatementTestWithBonuses()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -41,7 +44,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_UsualStatementTestWithoutBonuses() 
+        public void TXT_UsualBillStatementTestWithoutBonuses()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -55,7 +58,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_TestWithBonusesForREG() 
+        public void TXT_StatementTestWithBonusesForREG()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -67,7 +70,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_TestWithoutBonusesForREG() 
+        public void TXT_StatementTestWithoutBonusesForREG()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -79,7 +82,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_TestWithBonusesForSAL() 
+        public void TXT_StatementTestWithBonusesForSAL()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -91,7 +94,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_TestWithoutBonusesForSAL() 
+        public void TXT_StatementTestWithoutBonusesForSAL()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -103,7 +106,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_TestWithBonusesForSPO() 
+        public void TXT_StatementTestWithBonusesForSPO()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -115,7 +118,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void TXT_TestWithoutBonusesForSPO() 
+        public void TXT_StatementTestWithoutBonusesForSPO()
         {
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -149,7 +152,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_UsualStatementTestWithBonuses()
+        public void HTML_UsualBillStatementTestWithBonuses()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -163,7 +166,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_UsualStatementTestWithoutBonuses()
+        public void HTML_UsualBillStatementTestWithoutBonuses()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -177,7 +180,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_TestWithBonusesForREG()
+        public void HTML_StatementTestWithBonusesForREG()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -189,7 +192,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_TestWithoutBonusesForREG()
+        public void HTML_StatementTestWithoutBonusesForREG()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -201,7 +204,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_TestWithBonusesForSAL()
+        public void HTML_StatementTestWithBonusesForSAL()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -213,7 +216,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_TestWithoutBonusesForSAL()
+        public void HTML_StatementTestWithoutBonusesForSAL()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -225,7 +228,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_TestWithBonusesForSPO()
+        public void HTML_StatementTestWithBonusesForSPO()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -237,7 +240,7 @@ namespace TestsForProgramm
         }
 
         [Test]
-        public void HTML_TestWithoutBonusesForSPO()
+        public void HTML_StatementTestWithoutBonusesForSPO()
         {
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
@@ -245,6 +248,222 @@ namespace TestsForProgramm
             var expected = "<style>.field{width: 100px; float: left;}</style><p>Счет для Test</p><div class='field'>Название</div><div class='field'>Цена</div><div class='field'>Кол-во</div><div class='field'>Стоимость</div><div class='field'>Скидка</div><div class='field'>Сумма</div><div class='field'>Бонус</div><br><style>.field{width: 100px; float: left;}</style><div class='field'>Fanta</div><div class='field'>35</div><div class='field'>1</div><div class='field'>35</div><div class='field'>0</div><div class='field'>35</div><div class='field'>0</div><br><p>Сумма счета составляет 35</p><p>Вы заработали 0 бонусных баллов</p>";
             SomeBill.addGoods(new Item(new SPO("Fanta"), 1, 35));
             var actual = BillGenerator.GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void EmptyBillReaderTestWithBonuses()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 10));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 10" + "\n" +
+                "GoodsTotalCount: 0" + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "ItemsTotalCount: 0" + "\n" +
+                "# ID: GID PRICE QTY")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void EmptyBillReaderTestWithoutBonuses()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 0));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 0" + "\n" +
+                "GoodsTotalCount: 0" + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "ItemsTotalCount: 0" + "\n" +
+                "# ID: GID PRICE QTY")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void UsualBillReaderTestWithBonuses()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 10));
+            billforexpected.addGoods(new Item(new REG("Cola"), 6, 65));
+            billforexpected.addGoods(new Item(new SAL("Pepsi"), 3, 50));
+            billforexpected.addGoods(new Item(new SPO("Fanta"), 1, 35));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 10" + "\n" +
+                "GoodsTotalCount: 3 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Cola REG" + "\n" +
+                "2: Pepsi SAL" + "\n" +
+                "3: Fanta SPO" + "\n" +
+                "ItemsTotalCount: 3" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 65 6" + "\n" +
+                "2: 2 50 3" + "\n" +
+                "3: 3 35 1")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void UsualBillReaderTestWithoutBonuses()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 0));
+            billforexpected.addGoods(new Item(new REG("Cola"), 6, 65));
+            billforexpected.addGoods(new Item(new SAL("Pepsi"), 3, 50));
+            billforexpected.addGoods(new Item(new SPO("Fanta"), 1, 35));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 0" + "\n" +
+                "GoodsTotalCount: 3 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Cola REG" + "\n" +
+                "2: Pepsi SAL" + "\n" +
+                "3: Fanta SPO" + "\n" +
+                "ItemsTotalCount: 3" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 65 6" + "\n" +
+                "2: 2 50 3" + "\n" +
+                "3: 3 35 1")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ReaderTestWithBonusesForREG()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 10));
+            billforexpected.addGoods(new Item(new REG("Cola"), 6, 65));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 10" + "\n" +
+                "GoodsTotalCount: 1 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Cola REG" + "\n" +
+                "ItemsTotalCount: 1" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 65 6")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ReaderTestWithoutBonusesForREG()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 0));
+            billforexpected.addGoods(new Item(new REG("Cola"), 6, 65));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 0" + "\n" +
+                "GoodsTotalCount: 1 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Cola REG" + "\n" +
+                "ItemsTotalCount: 1" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 65 6")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ReaderTestWithBonusesForSAL() 
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 10));
+            billforexpected.addGoods(new Item(new SAL("Pepsi"), 3, 50));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 10" + "\n" +
+                "GoodsTotalCount: 1 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Pepsi SAL" + "\n" +
+                "ItemsTotalCount: 1" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 50 3")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ReaderTestWithoutBonusesForSAL()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 0));
+            billforexpected.addGoods(new Item(new SAL("Pepsi"), 3, 50));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 0" + "\n" +
+                "GoodsTotalCount: 1 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Pepsi SAL" + "\n" +
+                "ItemsTotalCount: 1" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 50 3")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ReaderTestWithBonusesForSPO() 
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 10));
+            billforexpected.addGoods(new Item(new SPO("Fanta"), 1, 35));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 10" + "\n" +
+                "GoodsTotalCount: 1 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Fanta SPO" + "\n" +
+                "ItemsTotalCount: 1" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 35 1")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
+            Assert.AreEqual(expected, actual);
+        }
+
+        [Test]
+        public void ReaderTestWithoutBonusesForSPO()
+        {
+            IView view = new TxtView();
+            BillFactory factory = new BillFactory();
+            var billforexpected = new Bill(new Customer("Test", 0));
+            billforexpected.addGoods(new Item(new SPO("Fanta"), 1, 35));
+            var billforactual = factory.CreateBill(new StringReader(String.Format(
+                "CustomerName: Test" + "\n" +
+                "CustomerBonus: 0" + "\n" +
+                "GoodsTotalCount: 1 " + "\n" +
+                "# ID: NAME TYPE(REG/SAL/SPO)" + "\n" +
+                "1: Fanta SPO" + "\n" +
+                "ItemsTotalCount: 1" + "\n" +
+                "# ID: GID PRICE QTY" + "\n" +
+                "1: 1 35 1")));
+            var expected = new BillGenerator(view, billforexpected).GetBill();
+            var actual = new BillGenerator(view, billforactual).GetBill();
             Assert.AreEqual(expected, actual);
         }
     }
