@@ -18,11 +18,11 @@ namespace RLCLab
         }
         public int GetBonus() 
         {
-            return (int)(getQuantity() * getPrice() * getGoods().GetBonus());
+            return (int)(GetSum() * getGoods().GetBonus());
         }
         public double GetDiscount()
         {
-            return getQuantity() * getPrice() * getGoods().GetDiscount(_quantity);
+            return GetSum() * getGoods().GetDiscount(_quantity);
         }
         public double GetUsedBonus(Customer _customer)
         {
