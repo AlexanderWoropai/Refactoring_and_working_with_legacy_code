@@ -33,6 +33,16 @@ namespace TestsForProgramm
         [Test]
         public void TXT_UsualBillStatementTestWithBonuses()
         {
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] { 
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
             GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
@@ -48,7 +58,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_UsualBillStatementTestWithoutBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -63,7 +83,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_StatementTestWithBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -76,7 +106,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_StatementTestWithoutBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -89,7 +129,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_StatementTestWithBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -102,7 +152,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_StatementTestWithoutBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -115,7 +175,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_StatementTestWithBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -128,7 +198,17 @@ namespace TestsForProgramm
         [Test]
         public void TXT_StatementTestWithoutBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -163,7 +243,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_UsualBillStatementTestWithBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -178,7 +268,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_UsualBillStatementTestWithoutBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -193,7 +293,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_StatementTestWithBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -206,7 +316,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_StatementTestWithoutBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -219,7 +339,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_StatementTestWithBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -232,7 +362,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_StatementTestWithoutBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -245,7 +385,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_StatementTestWithBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -258,7 +408,17 @@ namespace TestsForProgramm
         [Test]
         public void HTML_StatementTestWithoutBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new HtmlView();
             var SomeBill = new Bill(new Customer("Test", 0));
             var BillGenerator = new BillGenerator(view, SomeBill);
@@ -271,9 +431,19 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_EmptyBillReaderTestWithBonuses()
         {
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             var billforactual = factory.CreateBill(new StringReader(String.Format(
@@ -291,9 +461,19 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_EmptyBillReaderTestWithoutBonuses()
         {
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             var billforactual = factory.CreateBill(new StringReader(String.Format(
@@ -311,10 +491,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_UsualBillReaderTestWithBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -341,10 +531,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_UsualBillReaderTestWithoutBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -371,10 +571,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_ReaderTestWithBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -395,10 +605,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_ReaderTestWithoutBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -419,10 +639,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_ReaderTestWithBonusesForSAL() 
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("SAL", "Pepsi"), 3, 50));
@@ -443,10 +673,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_ReaderTestWithoutBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("SAL", "Pepsi"), 3, 50));
@@ -467,10 +707,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_ReaderTestWithBonusesForSPO() 
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("SPO", "Fanta"), 1, 35));
@@ -491,10 +741,20 @@ namespace TestsForProgramm
         [Test]
         public void YAMLSource_ReaderTestWithoutBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("YAML");
+            IFileSource filesource = filesourceFactory.Create("YAML", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("SPO", "Fanta"), 1, 35));
@@ -519,9 +779,19 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_EmptyBillReaderTestWithBonuses()
         {
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             var billforactual = factory.CreateBill(new StringReader(String.Format(
@@ -539,9 +809,19 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_EmptyBillReaderTestWithoutBonuses()
         {
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             var billforactual = factory.CreateBill(new StringReader(String.Format(
@@ -559,10 +839,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_UsualBillReaderTestWithBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -589,10 +879,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_UsualBillReaderTestWithoutBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -619,10 +919,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_ReaderTestWithBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -643,10 +953,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_ReaderTestWithoutBonusesForREG()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("REG", "Cola"), 6, 65));
@@ -667,10 +987,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_ReaderTestWithBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("SAL", "Pepsi"), 3, 50));
@@ -691,10 +1021,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_ReaderTestWithoutBonusesForSAL()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("SAL", "Pepsi"), 3, 50));
@@ -715,10 +1055,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_ReaderTestWithBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 10));
             billforexpected.addGoods(new Item(goodsFactory.Create("SPO", "Fanta"), 1, 35));
@@ -739,10 +1089,20 @@ namespace TestsForProgramm
         [Test]
         public void TXTSource_ReaderTestWithoutBonusesForSPO()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            AllConfigs someconfigs = new AllConfigs(
+                new Config[] {
+                new Config("FixedAmount", 0.05, 0),
+                new Config("FixedAmount", 0.01, 0),
+                new Config("FixedAmount", 0, 0)},
+                new Config[] {
+                new Config("PercentForQuantity", 0.03, 2),
+                new Config("PercentForQuantity", 0.01, 3),
+                new Config("PercentForQuantity", 0.005, 10)}
+                );
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             FileSourceFactory filesourceFactory = new FileSourceFactory();
             IView view = new TxtView();
-            IFileSource filesource = filesourceFactory.Create("TXT");
+            IFileSource filesource = filesourceFactory.Create("TXT", someconfigs);
             BillFactory factory = new BillFactory(filesource);
             var billforexpected = new Bill(new Customer("Test", 0));
             billforexpected.addGoods(new Item(goodsFactory.Create("SPO", "Fanta"), 1, 35));

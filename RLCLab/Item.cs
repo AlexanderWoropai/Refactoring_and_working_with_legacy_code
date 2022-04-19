@@ -28,10 +28,11 @@ namespace RLCLab
         {
             double usedBonus = 0;
             // используем бонусы
-/*            if ((getGoods().GetType() == typeof(REG)) && getQuantity() > 5)
+            /*if ((getGoods().GetType() == typeof(REG)) && getQuantity() > 5)
                 usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));
-            if ((getGoods().GetType() == typeof(SPO)) && getQuantity() > 1)*/
-                usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));
+            if ((getGoods().GetType() == typeof(SPO)) && getQuantity() > 1)
+                usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));*/
+            usedBonus = getGoods().GetUsedBonus(_customer, this);
             return usedBonus;
         }
         public double GetSum()

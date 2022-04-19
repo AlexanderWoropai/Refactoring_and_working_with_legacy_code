@@ -15,5 +15,11 @@ namespace RLCLab
         public double value_to_return;
         [JsonProperty("limitation")]
         public double limitation;
+        public Config(string TypeOfStrategy, double value_to_return, double limitation) 
+        {
+            this.TypeOfStrategy = TypeOfStrategy;
+            this.value_to_return = value_to_return;
+            this.limitation = limitation;
+        }
     }
 }

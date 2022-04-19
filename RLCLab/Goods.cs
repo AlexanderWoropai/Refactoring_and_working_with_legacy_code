@@ -8,8 +8,8 @@ namespace RLCLab
     public class Goods 
     {
         protected String _title;
-        private IBonusStrategy _BonusStrategy;
-        private IDiscountStrategy _DiscountStrategy;
+        protected IBonusStrategy _BonusStrategy;
+        protected IDiscountStrategy _DiscountStrategy;
         public Goods(String title, IBonusStrategy BonusStrategy, IDiscountStrategy DiscountStrategy)
         {
             _title = title;
@@ -19,6 +19,10 @@ namespace RLCLab
         public String getTitle()
         {
             return _title;
+        }
+        public virtual double GetUsedBonus(Customer _customer, Item item) 
+        {
+            return 0;
         }
         public double GetBonus(int item_quantity, double item_price)
         {

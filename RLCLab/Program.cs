@@ -16,8 +16,8 @@ namespace RLCLab
             AllConfigs someconfigs = JsonConvert.DeserializeObject<AllConfigs>(Configsreader.ReadToEnd());
 
             FileSourceFactory sourceFactory = new FileSourceFactory();
-            BillFactory billFactory = new BillFactory(sourceFactory.Create("TXT", someconfigs));
-            string filename = "BillInfo/BillInfo.txt";
+            BillFactory billFactory = new BillFactory(sourceFactory.Create("YAML", someconfigs));
+            string filename = "BillInfo/BillInfo.yaml";
             if (args.Length == 1) filename = args[0];
             var fs = new FileStream(filename, FileMode.Open);
             TextReader reader = new StreamReader(fs);
