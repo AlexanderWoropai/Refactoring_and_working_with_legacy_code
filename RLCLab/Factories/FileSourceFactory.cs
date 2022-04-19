@@ -8,10 +8,10 @@ namespace RLCLab
 {
     public class FileSourceFactory
     {
-        public IFileSource Create(string type) 
+        public IFileSource Create(string type, AllConfigs allConfigs) 
         {
-            if (type == "TXT") return new TxtFileSource();
-            if (type == "YAML") return new YamlFileSource();
+            if (type == "TXT") return new TxtFileSource(allConfigs);
+            if (type == "YAML") return new YamlFileSource(allConfigs);
             return null;
         }
     }

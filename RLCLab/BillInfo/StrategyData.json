@@ -1,0 +1,37 @@
+{
+  "DataForBonusREG_SAL_SPO": [
+    {
+      "TypeOfStrategy": "FixedAmount",
+      "value_to_return": 10,
+      "limitation": 0
+    },
+    {
+      "TypeOfStrategy": "FixedAmount",
+      "value_to_return": 10,
+      "limitation": 0
+    },
+    {
+      "TypeOfStrategy": "FixedAmount",
+      "value_to_return": 10,
+      "limitation": 0
+    }
+  ],
+  "DataForDiscountREG_SAL_SPO": [
+    {
+      "TypeOfStrategy": "FixedPercentAllways",
+      "value_to_return": 0.1,
+      "limitation": 0
+    },
+    {
+      "TypeOfStrategy": "FixedPercentAllways",
+      "value_to_return": 0.1,
+      "limitation": 0
+    },
+    {
+      "TypeOfStrategy": "FixedPercentAllways",
+      "value_to_return": 0.1,
+      "limitation": 0
+    }
+  ]
+
+}

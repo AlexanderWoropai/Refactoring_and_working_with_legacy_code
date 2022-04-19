@@ -9,6 +9,11 @@ namespace RLCLab
 {
     class TxtFileSource : IFileSource
     {
+        AllConfigs _allConfigs;
+        public TxtFileSource(AllConfigs allConfigs) 
+        {
+            _allConfigs = allConfigs;
+        }
         public Customer GetCustomer(TextReader reader)
         {
             // read customer
@@ -31,7 +36,7 @@ namespace RLCLab
 
         public Goods GetNextGood(TextReader reader)
         {
-            var factory = new GoodsFactory();
+            var factory = new GoodsFactory(_allConfigs);
             string line;
             string[] result;
             line = GetNextLine(reader);
@@ -39,7 +44,7 @@ namespace RLCLab
             result = result[1].Trim().Split();
             string type = result[1].Trim();
 
-            return factory.Create(type, result[0]); ;
+            return factory.Create(type, result[0]);
         }
 
         public int GetItemsCount(TextReader reader)

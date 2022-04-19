@@ -8,21 +8,25 @@ namespace RLCLab
     public class Goods 
     {
         protected String _title;
-        public Goods(String title)
+        private IBonusStrategy _BonusStrategy;
+        private IDiscountStrategy _DiscountStrategy;
+        public Goods(String title, IBonusStrategy BonusStrategy, IDiscountStrategy DiscountStrategy)
         {
             _title = title;
+            _BonusStrategy = BonusStrategy;
+            _DiscountStrategy = DiscountStrategy;
         }
         public String getTitle()
         {
             return _title;
         }
-        public virtual double GetBonus()
+        public double GetBonus(int item_quantity, double item_price)
         {
-            return 0;
+            return _BonusStrategy.GetBonus(item_quantity, item_price);
         }
-        public virtual double GetDiscount(int qty)
+        public double GetDiscount(int item_quantity, double item_price)
         {
-            return 0;
+            return _DiscountStrategy.GetDiscount(item_quantity, item_price);
         }
     }
 }

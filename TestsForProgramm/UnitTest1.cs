@@ -3,6 +3,7 @@ using RLCLab;
 using static RLCLab.Program;
 using System;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace TestsForProgramm
 {
@@ -32,7 +33,7 @@ namespace TestsForProgramm
         [Test]
         public void TXT_UsualBillStatementTestWithBonuses()
         {
-            GoodsFactory goodsFactory = new GoodsFactory();
+            GoodsFactory goodsFactory = new GoodsFactory(someconfigs);
             IView view = new TxtView();
             var SomeBill = new Bill(new Customer("Test", 10));
             var BillGenerator = new BillGenerator(view, SomeBill);

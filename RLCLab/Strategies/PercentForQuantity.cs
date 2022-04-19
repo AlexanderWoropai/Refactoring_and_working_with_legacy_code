@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class AmountForSum : IBonusStrategy
+    class PercentForQuantity : IDiscountStrategy
     {
         double _value_to_return;
         double _limitation;
-        public AmountForSum(double value_to_return, double limitation = 0)
+        public PercentForQuantity(double value_to_return, double limitation = 0)
         {
             _value_to_return = value_to_return;
             _limitation = limitation;
         }
-        public double GetBonus(int item_quantity, double item_price)
+        public double GetDiscount(int item_quantity, double item_price)
         {
-            if (item_quantity * item_price > _limitation) return _value_to_return;
+            if (item_quantity > _limitation) return _value_to_return;
             return 0;
         }
     }

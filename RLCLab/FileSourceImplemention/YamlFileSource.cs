@@ -9,6 +9,11 @@ namespace RLCLab
 {
     public class YamlFileSource : IFileSource
     {
+        AllConfigs _allConfigs;
+        public YamlFileSource(AllConfigs allConfigs)
+        {
+            _allConfigs = allConfigs;
+        }
         public Customer GetCustomer(TextReader reader)
         {
             // read customer
@@ -31,7 +36,7 @@ namespace RLCLab
 
         public Goods GetNextGood(TextReader reader)
         {
-            var factory = new GoodsFactory();
+            var factory = new GoodsFactory(_allConfigs);
             string line;
             string[] result;
             line = GetNextLine(reader);

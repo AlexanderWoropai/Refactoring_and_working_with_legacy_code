@@ -8,6 +8,6 @@ namespace RLCLab
 {
     public interface IBonusStrategy
     {
-        double GetBonus(Item _item);
+        double GetBonus(int item_quantity, double item_price);
     }
 }

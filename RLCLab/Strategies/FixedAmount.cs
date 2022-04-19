@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RLCLab.Strategies
+namespace RLCLab
 {
     public class FixedAmount : IBonusStrategy
     {
-        public double GetBonus(Item _item)
-        { 
-            switch (_item.getGoods()) 
-            {
-                case REG: return 10;
-                case SAL: return 10;
-                case SPO: return 10;
-            }
-            return 0;
+        double _value_to_return;
+        double _limitation;
+        public FixedAmount(double value_to_return, double limitation = 0)
+        {
+            _value_to_return = value_to_return;
+            _limitation = limitation;
+        }
+        public double GetBonus(int item_quantity, double item_price)
+        {
+            return _value_to_return;
         }
     }
 }

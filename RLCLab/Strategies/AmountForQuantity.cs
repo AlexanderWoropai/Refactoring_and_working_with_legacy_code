@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RLCLab.Strategies
+namespace RLCLab
 {
     class AmountForQuantity : IBonusStrategy
     {
-        public double GetBonus(Item _item)
+        double _value_to_return;
+        double _limitation;
+        public AmountForQuantity(double value_to_return, double limitation = 0) 
         {
-            var qty = _item.getQuantity();
-            switch (_item.getGoods())
-            {
-                case REG: if (qty > 2) return 0.03; break;
-                case SAL: if (qty > 3) return 0.01; break;
-                case SPO: if (qty > 10) return 0.005; break;
-            }
+            _value_to_return = value_to_return;
+            _limitation = limitation;
+        }
+        public double GetBonus(int item_quantity, double item_price)
+        {
+            if (item_quantity > _limitation) return _value_to_return;
             return 0;
         }
     }

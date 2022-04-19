@@ -18,19 +18,19 @@ namespace RLCLab
         }
         public int GetBonus() 
         {
-            return (int)(GetSum() * getGoods().GetBonus());
+            return (int)(GetSum() * getGoods().GetBonus(_quantity, _price));
         }
         public double GetDiscount()
         {
-            return GetSum() * getGoods().GetDiscount(_quantity);
+            return GetSum() * getGoods().GetDiscount(_quantity, _price);
         }
         public double GetUsedBonus(Customer _customer)
         {
             double usedBonus = 0;
             // используем бонусы
-            if ((getGoods().GetType() == typeof(REG)) && getQuantity() > 5)
+/*            if ((getGoods().GetType() == typeof(REG)) && getQuantity() > 5)
                 usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));
-            if ((getGoods().GetType() == typeof(SPO)) && getQuantity() > 1)
+            if ((getGoods().GetType() == typeof(SPO)) && getQuantity() > 1)*/
                 usedBonus = _customer.useBonus((int)(GetSum() - GetDiscount()));
             return usedBonus;
         }

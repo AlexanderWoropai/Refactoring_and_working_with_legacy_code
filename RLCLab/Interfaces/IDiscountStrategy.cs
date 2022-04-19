@@ -8,6 +8,6 @@ namespace RLCLab
 {
     public interface IDiscountStrategy
     {
-        double GetDiscount(Item _item);
+        double GetDiscount(int item_quantity, double item_price);
     }
 }
