@@ -36,7 +36,7 @@ namespace RLCLab
                 _thisConfigDiscount = DiscountConfigREG;
                 BonusStrategy = _strategyFactory.BonusStrategyCreate(_thisConfigBonus.TypeOfStrategy, _thisConfigBonus.value_to_return, _thisConfigBonus.limitation);
                 DiscountStrategy = _strategyFactory.DiscountStrategyCreate(_thisConfigDiscount.TypeOfStrategy, _thisConfigDiscount.value_to_return, _thisConfigDiscount.limitation);
-                return new Goods(title, BonusStrategy, DiscountStrategy); 
+                return new REG(title, BonusStrategy, DiscountStrategy); 
             }
             if (type == "SAL") 
             {
@@ -44,7 +44,7 @@ namespace RLCLab
                 _thisConfigDiscount = DiscountConfigSAL;
                 BonusStrategy = _strategyFactory.BonusStrategyCreate(_thisConfigBonus.TypeOfStrategy, _thisConfigBonus.value_to_return, _thisConfigBonus.limitation);
                 DiscountStrategy = _strategyFactory.DiscountStrategyCreate(_thisConfigDiscount.TypeOfStrategy, _thisConfigDiscount.value_to_return, _thisConfigDiscount.limitation);
-                return new Goods(title, BonusStrategy, DiscountStrategy);
+                return new SAL(title, BonusStrategy, DiscountStrategy);
             };
             if (type == "SPO") 
             {
@@ -52,7 +52,7 @@ namespace RLCLab
                 _thisConfigDiscount = DiscountConfigSPO;
                 BonusStrategy = _strategyFactory.BonusStrategyCreate(_thisConfigBonus.TypeOfStrategy, _thisConfigBonus.value_to_return, _thisConfigBonus.limitation);
                 DiscountStrategy = _strategyFactory.DiscountStrategyCreate(_thisConfigDiscount.TypeOfStrategy, _thisConfigDiscount.value_to_return, _thisConfigDiscount.limitation);
-                return new Goods(title, BonusStrategy, DiscountStrategy);
+                return new SPO(title, BonusStrategy, DiscountStrategy);
             };
             return null;
         }
