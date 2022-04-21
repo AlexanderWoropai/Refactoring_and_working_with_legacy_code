@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class AmountForSum : IBonusStrategy
+    public class AmountForSum : IBonusStrategy
     {
         double _value_to_return;
         double _limitation;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class StrategyFactory
+    public class StrategyFactory
     {
         public IBonusStrategy BonusStrategyCreate(string type, double value_to_return, double limitation) 
         {

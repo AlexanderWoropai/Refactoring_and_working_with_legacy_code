@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class SAL : Goods
+    public class SAL : Goods
     {
         public SAL(string title, IBonusStrategy bonusStrategy, IDiscountStrategy discountStrategy) : base(title, bonusStrategy, discountStrategy)
         {

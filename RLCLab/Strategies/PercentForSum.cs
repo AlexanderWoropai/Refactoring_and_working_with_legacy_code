@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class PercentForSum : IDiscountStrategy
+    public class PercentForSum : IDiscountStrategy
     {
         double _value_to_return;
         double _limitation;

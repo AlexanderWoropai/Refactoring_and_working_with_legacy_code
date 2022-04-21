@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RLCLab
 {
-    class TxtFileSource : IFileSource
+    public class TxtFileSource : IFileSource
     {
         AllConfigs _allConfigs;
         public TxtFileSource(AllConfigs allConfigs) 
