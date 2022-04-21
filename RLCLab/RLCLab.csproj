@@ -10,6 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ClassLibraryForRefactoring">
+      <HintPath>bin\Debug\net5.0\ClassLibraryForRefactoring.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="BillInfo\BillInfo.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

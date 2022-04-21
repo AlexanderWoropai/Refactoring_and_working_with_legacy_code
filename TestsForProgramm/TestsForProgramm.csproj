@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -15,6 +15,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RLCLab\RLCLab.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ClassLibraryForRefactoring">
+      <HintPath>..\RLCLab\bin\Debug\net5.0\ClassLibraryForRefactoring.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

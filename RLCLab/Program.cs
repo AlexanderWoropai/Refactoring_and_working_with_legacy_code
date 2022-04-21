@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using Newtonsoft.Json;
+using ClassLibraryForRefactoring;
 namespace RLCLab
 {
     public class Program

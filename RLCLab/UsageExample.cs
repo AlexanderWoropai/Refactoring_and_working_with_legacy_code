@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
+using ClassLibraryForRefactoring;
 namespace RLCLab
 {
     class UsageExample

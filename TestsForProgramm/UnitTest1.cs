@@ -4,6 +4,7 @@ using static RLCLab.Program;
 using System;
 using System.IO;
 using Newtonsoft.Json;
+using ClassLibraryForRefactoring;
 
 namespace TestsForProgramm
 {
