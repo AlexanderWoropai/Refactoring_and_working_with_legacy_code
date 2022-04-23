@@ -10,6 +10,11 @@ namespace RLCLab
     {
         static void Main(string[] args)
         {
+            //Необходимый функционал для формы :
+            //Поиск стратегии или ее создание в форме
+            //Выбор формата чека YAML или TXT, или создание чека
+            //Поиск чека
+            //Создание текста чека в формате Txt или Html   
             string Configsfilename = "BillInfo/StrategyData.json";
             if (args.Length == 1) Configsfilename = args[0];
             var Configsfs = new FileStream(Configsfilename, FileMode.Open);

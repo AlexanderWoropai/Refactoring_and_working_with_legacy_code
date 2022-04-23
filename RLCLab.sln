@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RLCLab", "RLCLab\RLCLab.csproj", "{8FA559F4-2E86-40A1-852A-165708456D41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsForProgramm", "TestsForProgramm\TestsForProgramm.csproj", "{11F918B5-51B3-4D9B-98FF-C76A7552B666}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsForProgramm", "TestsForProgramm\TestsForProgramm.csproj", "{11F918B5-51B3-4D9B-98FF-C76A7552B666}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibraryForRefactoring", "ClassLibraryForRefactoring\ClassLibraryForRefactoring.csproj", "{8F387C5E-0892-402D-9915-39AC203F0D54}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RLCLabFormCore", "RLCLabFormCore\RLCLabFormCore.csproj", "{B81DF0B5-AFF0-4AD9-AD09-BA0DE1C5DDC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{11F918B5-51B3-4D9B-98FF-C76A7552B666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11F918B5-51B3-4D9B-98FF-C76A7552B666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11F918B5-51B3-4D9B-98FF-C76A7552B666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F387C5E-0892-402D-9915-39AC203F0D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F387C5E-0892-402D-9915-39AC203F0D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F387C5E-0892-402D-9915-39AC203F0D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F387C5E-0892-402D-9915-39AC203F0D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B81DF0B5-AFF0-4AD9-AD09-BA0DE1C5DDC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B81DF0B5-AFF0-4AD9-AD09-BA0DE1C5DDC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B81DF0B5-AFF0-4AD9-AD09-BA0DE1C5DDC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B81DF0B5-AFF0-4AD9-AD09-BA0DE1C5DDC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
